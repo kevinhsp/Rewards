@@ -10,12 +10,20 @@ import java.util.Set;
 public interface CombineService {
 
     PurchaseEntity savePurchase(Purchase purchase, Long userId);
-    Set<PurchaseEntity> findPurchasesByUserIdAndMonth(String month, Long userId);
 
+    Set<PurchaseEntity> findYearMonthPurchasesByUserId(Long userId, int year, int month);
+
+    Long getYearMonthPointsByUserId(Long userId, int year, int month);
     Set<PurchaseEntity> findPurchasesByUserId(Long userId);
 
     Long getAllPointsByUserId(Long userId);
 
     UserEntity saveUser(UserEntity user);
+
+    UserEntity getUserByUserId(Long userId);
+
+    PurchaseEntity updatePurchase(Long userId, Long purchaseId, Purchase purchase);
+
+    PurchaseEntity deletePurchase(Long userId, Long purchaseId);
 
 }
